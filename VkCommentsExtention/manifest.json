@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+
+  "name": "Прослушка комментариев для vk.com",
+  "homepage_url": "https://github.com/kovnir",
+  "description": "Позволяет вам получать список всех комментариев сообщества и уведомления о новых.",
+  "version": "1.0",
+
+  "permissions": [ "storage", "tabs", "http://*/*", "https://*/*" ],
+
+  
+  "background": { "scripts": [ "bgscript.js" ]},
+//  "content_scripts": [
+//    {
+//      "matches": ["<all_urls>"]
+//      "js": ["bgscript.js"]
+//      "css": ["vk_styles.css"]
+//    }],
+    
+    "browser_action" :
+    {
+      "default_popup": "popup.html" 
+    },
+  
+  "icons": {
+    "16" : "icon.png",
+    "48" : "icon.png",
+    "128" : "icon.png"
+  }
+  
+}

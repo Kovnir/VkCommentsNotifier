@@ -1,0 +1,70 @@
+body {
+    background-color: lightblue;
+        font-size: 14px;
+}
+
+select {
+    width: 280px; 
+}
+
+
+div.parrent {
+    width: 300px; 
+}
+
+div.no_new_comments {
+    text-align: center;
+    color: #1C8F20; 
+    font-size: 20px;
+}
+
+div.comment {
+    border: 2px solid #1C8F20;
+    border-radius: 5px;
+
+    padding-top: 10px;
+    padding-bottom: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+div.post_text {
+    border: 1px solid #1C8F20;
+    border-radius: 2px;
+
+    font-size: 10px;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+
+    margin-left: 10px;
+}
+
+button
+{
+	background-color: #4CAF50;
+	border-radius: 5px;
+	padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    margin: 4px 2px 0px, 0px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+
+}
+
+.button_greed {background-color: #4CAF50;} /* Green */
+.button_blue {background-color: #008CBA;} /* Blue */
+.button_red {background-color: #f44336;} /* Red */ 
+.button_gray {background-color: #e7e7e7; color: black;} /* Gray */ 
+.button_black {background-color: #555555;} /* Black */
+
+button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

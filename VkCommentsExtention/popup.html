@@ -1,0 +1,61 @@
+<html>
+  <head>
+	<meta charset="utf-8">
+	<script src="script.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+  </head> 
+  <body>
+	<div class="parrent">
+	  <div id="login">
+		<p>Для работы расширеня вы должны войти подтвердить разрешения в vk.com!</p>
+		<p><button id="login_button">Подтвердить</button></p>
+	  </div>
+
+	  <div id="group_loading">
+		<p>Идет загрузка Ваших групп. Это может занять около минуты.</p>
+	  </div> 
+
+	  <div id="setup">
+		<p>Выберите Вашу группу из списка.</p>
+		 <select id = "group_select">
+		 </select>
+		<p><button id="group_select_button">Ok!</button></p>
+	  </div>
+
+	  <div id="comments">
+  		<div id="group_name"></div>
+  		<br>
+  		<div id="getting_data">Получаем данные...</div>
+      <div id="total_posts"></div>
+  		<br>
+  		<div id="total_comments"></div>
+      <div class="no_new_comments" id="no_new_comments"><p>Пока все тихо...</p></div>
+      <div id="new_comments">
+<!--
+      <div class="comment" id="comment">
+        <div id="new_comment_count">Новых комментариев: 1</div>
+        <p>К посту:</p>
+        <div id="post_text" id="post_text">Еженедельный отчет:
+  <br><br>
+  * Обновили отрисовку дебажных гизмо для Сандмена. Их было слишком много, теперь можно включать/выключать только необходимые
+  <br>
+  * Фиксили баг с увеличением Сандмена в узком пространстве. Пока фиксили сделали еще несколько багов, кот...</div>
+        <p><button id="open_button">Открыть!</button><button id="checked_button" class="button button_blue" >Проверено!</button></p>
+      </div>
+-->
+    </div>
+	  </div>
+
+    <br>
+    <br>
+    <br>
+	  <button class="button_red" id="clear_all_button">Начать заново</button>
+    <div id="cleat_all">
+      <p>Вы точно хотите удалить данные расширения и начать заново?</p>
+      <button class="button_red" id="yes_clear_button">Удалить данные</button>
+      <button id="no_clear_button">Отменить</button>
+    </div>
+
+	</div>
+  </body>
+</html>
