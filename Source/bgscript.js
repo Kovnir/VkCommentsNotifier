@@ -105,15 +105,15 @@ function Scedule(timeout)
 
 function Loop()
 {
-	chrome.storage.local.get(['access_token', 'group_id', 'comments'], function(result) 
+	chrome.storage.local.get(['access_token', 'group_numeric_id', 'comments'], function(result) 
 	{
-		if (result.access_token === undefined || result.group_id === undefined)
+		if (result.access_token === undefined || result.group_numeric_id === undefined)
 		{
 			Scedule(1000);
 			return;
 		}
 		oldData = result.comments;
-		GetWallDataWithOffset(1, 0, oldData, undefined, undefined, result.group_id, result.access_token,
+		GetWallDataWithOffset(0, 0, oldData, undefined, undefined, result.group_numeric_id, result.access_token,
 			function(newComments, newData, totalComments, totalPosts)
 			{
 				chrome.storage.local.get(['new_comments'], function(result) 
@@ -162,9 +162,9 @@ function GetWallDataWithOffset(offset, totalComments, oldData, newData, newComme
 	{
 		newComments = {};
 	}
-
+	var batchCount = 100;
 	var xhr = new XMLHttpRequest();
-	url = "https://api.vk.com/method/wall.get?domain=" + groupId + "&count=100&offset=" + offset + "&extended=0&access_token=" + accessToken + "&v=5.78";
+	url = "https://api.vk.com/method/wall.get?owner_id=-" + groupId + "&count="+batchCount+"&offset=" + offset + "&extended=0&access_token=" + accessToken + "&v=5.78";
 	xhr.open('GET', url, true);
 	xhr.send();
 
@@ -219,12 +219,12 @@ function GetWallDataWithOffset(offset, totalComments, oldData, newData, newComme
 						totalComments += count;
 					}
 				});
-				var restPosts = postsCount - (posts.length + offset - 1);
-				console.log('postsCount: ' + postsCount);
+				var restPosts = postsCount - posts.length - offset;
+				console.log('Posts recieved: ' + posts.length + '; Total Count: ' + postsCount + '; Rest: ' + restPosts);
 
 				if (restPosts > 0)
 				{
-					GetWallDataWithOffset(offset + 100, totalComments, oldData, newData, newComments, groupId, accessToken, callback);
+					GetWallDataWithOffset(offset + batchCount, totalComments, oldData, newData, newComments, groupId, accessToken, callback);
 				}
 				else
 				{
