@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
 
-  "name": "Прослушка комментариев для vk.com",
+  "name": "Треккинг комментариев групп vk.com",
   "homepage_url": "https://github.com/kovnir",
-  "description": "Позволяет вам получать список всех комментариев сообщества и уведомления о новых.",
-  "version": "1.0",
+  "description": "Позволяет вам получать уведомления о новых комментариях в вашей группе.",
+  "version": "1.1",
 
   "permissions": [ "storage", "tabs", "http://*/*", "https://*/*" ],
 
@@ -20,6 +20,5 @@
     "16" : "icon.png",
     "48" : "icon.png",
     "128" : "icon.png"
-  }
-  
+  } 
 }
