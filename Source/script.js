@@ -14,8 +14,8 @@ function OpenSuitibleScreen()
 {
 	chrome.storage.local.get(['access_token', 'group_list', 'group_id', 'group_name', "group_numeric_id", 'total_comments', 'total_posts', 'new_comments'], function(result) 
 	{
-		document.getElementById("cleat_all").style.display = 'none';
-		document.getElementById("clear_all_button").style.display = 'block';
+		document.getElementById("clear_all").style.display = 'none';
+		document.getElementById("clear_button_holder").style.display = 'block';
 		if (result.access_token === undefined)
 		{
 			ShowLogin();
@@ -64,8 +64,8 @@ function OnGroupSelectButtonClick()
 
 function OnClearButtonClick() 
 {
-	document.getElementById("cleat_all").style.display = 'block';
-	document.getElementById("clear_all_button").style.display = 'none';
+	document.getElementById("clear_all").style.display = 'block';
+	document.getElementById("clear_button_holder").style.display = 'none';
 	document.getElementById("login").style.display = 'none';
 	document.getElementById("group_loading").style.display = 'none';
 	document.getElementById("setup").style.display = 'none';
@@ -139,7 +139,7 @@ function ShowSetup(text)
 
 function ShowLogin()
 {
-	document.getElementById("clear_all_button").style.display = 'none';
+	document.getElementById("clear_button_holder").style.display = 'none';
 	document.getElementById("login").style.display = 'block';
 	document.getElementById("group_loading").style.display = 'none';
 	document.getElementById("setup").style.display = 'none';
@@ -154,7 +154,7 @@ function ShowComments(groupId, groupName, groupNumericId, postCount, commentsCou
 	document.getElementById("comments").style.display = 'block';
 
 	var nameDiv = document.getElementById('group_name');
-	var text = "Трекаем группу: <a href=\"http://vk.com/" + groupId + "\" target=\"_blank\">" + groupName + "</a>";
+	var text = "<b>Трекаем группу: <a href=\"http://vk.com/" + groupId + "\" target=\"_blank\">" + groupName + "</a></b>";
 	nameDiv.innerHTML = text;
 
 	var gettingsData = document.getElementById('getting_data');
@@ -191,7 +191,7 @@ function ShowComments(groupId, groupName, groupNumericId, postCount, commentsCou
 	{
 		noNewComments.style.display = 'none';
 		commentsHolder.style.display = 'block';
-		commentsHolder.innerHTML = "";
+		commentsHolder.innerHTML = "<p><b>Новые комментарии:</b></p>";
 
 		for(var key in newComments)
 		{
@@ -205,6 +205,7 @@ function ShowComments(groupId, groupName, groupNumericId, postCount, commentsCou
 
 			commentsHolder.innerHTML += commentText;
 		}
+		commentsHolder.innerHTML += "<br>";
 		for(let key in newComments)
 		{
 			let item = newComments[key];

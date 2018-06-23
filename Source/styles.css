@@ -1,5 +1,5 @@
 body {
-    background-color: lightblue;
+    background-color: #ffffff;
         font-size: 14px;
 }
 
@@ -10,29 +10,32 @@ select {
 
 div.parrent {
     width: 300px; 
+    color: #4e5e48;
 }
 
 div.no_new_comments {
     text-align: center;
-    color: #1C8F20; 
+    color: #7db252; 
     font-size: 20px;
 }
 
 div.comment {
-    border: 2px solid #1C8F20;
+    border: 2px solid #527f75;
     border-radius: 5px;
 
-    padding-top: 10px;
     padding-bottom: 1px;
     padding-right: 10px;
     padding-left: 10px;
     margin-top: 10px;
 }
 
-div.post_text {
-    border: 1px solid #1C8F20;
-    border-radius: 2px;
+div.clear_all {
+    text-align: center;
+}
 
+div.post_text {
+    border: 1px solid #527f75;
+    border-radius: 2px;
     font-size: 10px;
 
     padding-top: 5px;
@@ -45,7 +48,8 @@ div.post_text {
 
 button
 {
-	background-color: #4CAF50;
+	background-color: #527f75;
+    color: white;
 	border-radius: 5px;
 	padding: 10px 10px;
     text-align: center;
@@ -56,12 +60,35 @@ button
     cursor: pointer;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-
 }
 
-.button_greed {background-color: #4CAF50;} /* Green */
-.button_blue {background-color: #008CBA;} /* Blue */
-.button_red {background-color: #f44336;} /* Red */ 
+div.clear_button_holder
+{
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 10px;
+}
+
+a:link {
+    color: #525e7f;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+}
+
+a:visited {
+    color: #525e7f;
+}
+
+a:hover {
+    color: 527f75;
+}
+
+a:active {
+    color: #525e7f;
+}
+
+.button_greed {background-color: #527f75;} /* Green */
+.button_blue {background-color: #52627f;} /* Blue */
+.button_red {background-color: #aa503a; color: white;} /* Red */ 
 .button_gray {background-color: #e7e7e7; color: black;} /* Gray */ 
 .button_black {background-color: #555555;} /* Black */
 
