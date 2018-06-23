@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "Треккинг комментариев групп vk.com",
+  "name": "Треккинг комментариев групп Вконтакте",
   "homepage_url": "https://github.com/kovnir",
-  "description": "Позволяет вам получать уведомления о новых комментариях в вашей группе.",
+  "description": "Позволяет вам получать уведомления о новых комментариях в вашей группе vk.com",
   "version": "1.1",
 
   "permissions": [ "storage", "tabs", "http://*/*", "https://*/*" ],

@@ -1,4 +1,4 @@
-## Расширение для Chrome - Прослушка комментариев в группах для vk.com
+## Треккинг комментариев для групп Вконтакте (Chrome extention)
 
 
 Каждые 30 секунд расширение опрашивает сервер vk.com и присылает уведомление в случае появления новых комментариев.
@@ -7,4 +7,7 @@
 
 <img src="example.png" width=300>
 
-Для установки просто перетащите скачанный файл `VkCommentsExtention.crx` в браузер Chrome.
+<a href="https://youtu.be/VXwDJo72EEI" target="_blank">Youtube видео с примерои моей группы</a>
+
+
+<a href="https://youtu.be/VXwDJo72EEI" target="_blank">Ссылка на расширение в магазиене расширений Chrome</a>
