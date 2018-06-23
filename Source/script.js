@@ -182,7 +182,7 @@ function ShowComments(groupId, groupName, groupNumericId, postCount, commentsCou
 	text = "Всего комментариев: " + commentsCount;
 	countComments.innerHTML = text;
 
-	if (newComments.length == 0)
+	if (newComments.length == 0 || newComments.length === undefined)
 	{
 		commentsHolder.style.display = 'none';
 		noNewComments.style.display = 'block';
