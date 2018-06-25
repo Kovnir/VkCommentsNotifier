@@ -105,15 +105,15 @@ function Scedule(timeout)
 
 function Loop()
 {
-	chrome.storage.local.get(['access_token', 'group_numeric_id', 'comments'], function(result) 
+	chrome.storage.local.get(['access_token', 'group_id', 'comments'], function(result) 
 	{
-		if (result.access_token === undefined || result.group_numeric_id === undefined)
+		if (result.access_token === undefined || result.group_id === undefined)
 		{
 			Scedule(1000);
 			return;
 		}
 		oldData = result.comments;
-		GetWallDataWithOffset(0, 0, oldData, undefined, undefined, result.group_numeric_id, result.access_token,
+		GetWallDataWithOffset(0, 0, oldData, undefined, undefined, result.group_id, result.access_token,
 			function(newComments, newData, totalComments, totalPosts)
 			{
 				chrome.storage.local.get(['new_comments'], function(result) 
@@ -190,7 +190,7 @@ function GetWallDataWithOffset(offset, totalComments, oldData, newData, newComme
 
 				if (response === undefined || posts === undefined || postsCount === undefined)
 				{
-					Scedule();
+					Scedule(30000);
 					return;
 				}
 				posts.forEach(function(item, i, arr) 

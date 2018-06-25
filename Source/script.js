@@ -12,7 +12,7 @@ function Setup()
 
 function OpenSuitibleScreen()
 {
-	chrome.storage.local.get(['access_token', 'group_list', 'group_id', 'group_name', "group_numeric_id", 'total_comments', 'total_posts', 'new_comments'], function(result) 
+	chrome.storage.local.get(['access_token', 'group_list', 'group_type', 'group_name', "group_id", 'total_comments', 'total_posts', 'new_comments'], function(result) 
 	{
 		document.getElementById("clear_all").style.display = 'none';
 		document.getElementById("clear_button_holder").style.display = 'block';
@@ -34,7 +34,7 @@ function OpenSuitibleScreen()
 				}
 				else
 				{
-					ShowComments(result.group_id, result.group_name, result.group_numeric_id, result.total_posts, result.total_comments, result.new_comments);
+					ShowComments(result.group_id, result.group_name, result.group_type, result.total_posts, result.total_comments, result.new_comments);
 				}
 			}
 		}
@@ -53,10 +53,10 @@ function OnLogicButtonClick()
 function OnGroupSelectButtonClick()
 {
 	var selectedGroup = groups[document.getElementById("group_select").selectedIndex];
-	var screenName = selectedGroup.screen_name;
 	var name = selectedGroup.name;
-	var groupNumericId = selectedGroup.id;
-	chrome.storage.local.set({'group_id': screenName, 'group_name': name, 'group_numeric_id' : groupNumericId}, function ()
+	var groupId = selectedGroup.id;
+	var groupType = selectedGroup.type === "group" ? "club" : "public";//else page
+	chrome.storage.local.set({'group_id': groupId, 'group_name': name, 'group_type' : groupType}, function ()
 	{
 		OpenSuitibleScreen();   
 	});
@@ -146,7 +146,7 @@ function ShowLogin()
 	document.getElementById("comments").style.display = 'none';
 }
 
-function ShowComments(groupId, groupName, groupNumericId, postCount, commentsCount, newComments)
+function ShowComments(groupId, groupName, groupType, postCount, commentsCount, newComments)
 {
 	document.getElementById("login").style.display = 'none';
 	document.getElementById("group_loading").style.display = 'none';
@@ -154,7 +154,7 @@ function ShowComments(groupId, groupName, groupNumericId, postCount, commentsCou
 	document.getElementById("comments").style.display = 'block';
 
 	var nameDiv = document.getElementById('group_name');
-	var text = "<b>Трекаем группу: <a href=\"http://vk.com/" + groupId + "\" target=\"_blank\">" + groupName + "</a></b>";
+	var text = "<b>Трекаем группу: <a href=\"http://vk.com/" + groupType + groupId + "\" target=\"_blank\">" + groupName + "</a></b>";
 	nameDiv.innerHTML = text;
 
 	var gettingsData = document.getElementById('getting_data');
@@ -212,7 +212,7 @@ function ShowComments(groupId, groupName, groupNumericId, postCount, commentsCou
 			let button_open = document.getElementById("open_button" + item.id);
 			button_open.addEventListener("click", function() 
 			{
-				chrome.tabs.create({url: "http://vk.com/" + groupId + "?w=wall-" + groupNumericId + "_" + item.id, active: true});
+				chrome.tabs.create({url: "http://vk.com/" + groupType + groupId + "?w=wall-" + groupId + "_" + item.id, active: true});
 			});
 			let button_checked = document.getElementById("checked_button" + item.id);
 			button_checked.addEventListener("click", function() 
